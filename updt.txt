@@ -1,0 +1,22 @@
+KEEP IT UP! 
+
+INVESTIGAR COMO SE COMPONE UN DOCKERFILE CORRECTAMENTE PARA CORRER UNA APLICACION DE FLASK. 
+INVESTIGAR COMO FUNCIONA A DETALLE AL MOMENTO DE CORRER UN CONTAINER EN GCLOUD. 
+
+
+Gcloud, cloud database basic app. 
+Crear flask app, req file, dockerfile.
+- FUNCIONA .ENV EN GCLOUD? 
+- 
+
+
+
+Desde main.py se puede acceder a la carpeta contenedora de la aplicacion, configura todo lo necesario
+genera un nuevo repositorio e intenta correr la aplicacion nuevamente.
+ 
+Funciona en localhost. / Falta dockerizar correctamente la informacion.
+Probar en G Cloud / Local.
+
+
+
+CONSIGUELO Y SIGUE RESPONSIVE PORTFOLIO...

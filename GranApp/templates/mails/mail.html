@@ -1,0 +1,27 @@
+{% extends 'basemail.html' %}
+
+{% block header %}<h1>{% block title %}correos enviados.{% endblock %}</h1>{% endblock %}
+{% block action %} <a href="{{ url_for('mail.create') }}", class="button"> Nuevo correo </a> {% endblock %}
+{% block content %}
+<ul>
+    {% for mail in mails %}
+        <li class="mail"> 
+            <div>
+            <span class="id">({{mail['id']}})</span> 
+            <span class="email">{{mail['email']}}</span>
+            <label>|  Asunto.  </label>
+            <span class="subject">{{mail['subject']}}</span>
+            <hr>
+            <p class="mail-content">{{mail['content']}}</p>
+            <br>
+            </div>
+        </li>
+    {% endfor %}
+</ul>
+{% endblock %}
+{% block sidebar %}
+<ul class="action">
+    <li><a href="{{url_for('todo.masterIndex')}}">TODOs globales</a></li>
+    <li><a href="{{url_for('todo.masterUser')}}">Usuarios</a></li>
+</ul>
+{% endblock %}

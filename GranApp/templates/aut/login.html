@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block header %}
+    <h1>{% block title %} INICIAR SESION - TODO {% endblock %}</h1>
+{% endblock %}
+
+{% block content%}
+    <form method="post" class="login">
+        <div class="logLabel">
+            <label for="username" >Username</label><br>
+            <label for="password" >Password</label><br>
+        </div>
+        
+        <div class="logInput">
+            <input autocomplete="off" name="username" id="username" required/><br>
+            <input autocomplete="off" type="password" name="password" id="password" required/><br>
+        </div>   
+        
+        <br><br><br><br><input class="logButton" type="submit" value="Iniciar Sesión"/>      
+    </form>
+{% endblock %}
+

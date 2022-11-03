@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<title>Editar</title>
+<link rel="stylesheet" style="text/css" href="{{url_for('static',filename='base.css')}}"/>
+<body>
+    <nav>
+        <h1>TODO LIST MANAGER</h1>
+        <ul>
+            <li><a href="{{ url_for('auth.register') }}">Registrate!</a></li>
+            <li><a href="{{ url_for('auth.login') }}">Iniciar sesion.</a></li>            
+        </ul>
+    </nav>
+    <section class='content'>
+        <header class="updateTD">
+            <h1>Editar todo</h1>
+            <hr>    
+        </header>
+        {% for message in get_flashed_messages() %}
+            <div class="message">{{ message }}</div>
+        {% endfor %}
+        <form method = 'post'>
+            <label for='description'>Descripción</label> <br>
+            <textarea name="description" id="description" required>{{ todo['description']}} </textarea> <br>
+            <label for="completed">Completado</label>
+            <input type="checkbox" name="completed" id="completed" {% if todo['completed'] == 1 %} checked {% endif %}/><br>
+            <input class="upBtn" type="submit" value="Guardar"/>
+        </form> 
+        <form action="{{ url_for('todo.masterDelete', id=todo['id']) }}" method="post">
+            <input class="upBtn" type="submit" value="Eliminar" onclick="return confirm('Estás seguro de eliminarlo?')" />
+        </form>
+    </section>
+</body>

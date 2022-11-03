@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<title>TODOS</title>
+<link rel="stylesheet" style="text/css" href="{{url_for('static',filename='base.css')}}"/>
+<body>
+    <nav>
+        <h1>TODO LIST MANAGER</h1>
+        <ul>
+            {% if g.user %}
+                <li><label>USUARIO:  </label><span>{{ g.user['username'] }}</span></li>
+                <li><a href="{{ url_for('auth.logout') }}">Cerrar sesion.</a></li>
+            {% else %}
+                <li><a href="{{ url_for('auth.register') }}">Registrate!</a></li>
+                <li><a href="{{ url_for('auth.login') }}">Iniciar sesion.</a></li>
+            {% endif %}
+        </ul>
+    </nav>
+    <div class='todoContent'>
+        <header>
+            <h1> TODOS </h1>
+                {% if g.user %} <!-- Si g.user tiene algún valor muestra la opción de añadir un nuevo TODO -->
+                    <a class='action' href="{{ url_for('todo.create')}}">Nuevo TODO.<br/><br/></a>
+                {% endif %}
+            <h2 class="cd">COMPLETADO</h2>    
+            <h2 class="td">TODO</h2>    
+        </header>
+        {% for message in get_flashed_messages() %}
+            <div class="message">{{ message }}</div>
+        {% endfor %}
+        <div class="todosContent">     
+            {% for todo in todos %} <!--Muestra los todos del usuario en cuestión.-->           
+                <h1>      
+                    {% if todo['completed']  == 1 %} <!--Si el todo está completado, muestralo en texto tachado-->
+                        <div class = 'CD'>
+                            <s>{{ todo['description'] }}</s><br/>
+                            <label>Fecha de creación: </label>
+                            {{ todo['created_at'].strftime('%Y-%m-%d %H:%M:%S') }}
+                            <label>Fecha de terminación: </label>
+                            {{ todo['completed_at'].strftime('%Y-%m-%d %H:%M:%S') }}
+                            <br/>
+                            <a class="action" href="{{ url_for('todo.update', id= todo['id']) }}"> Editar TODO. </a>
+                        </div>
+                        {% else %}
+                        <div class="TD">
+                            {{ todo['description'] }}<br/>
+                            <label>Fecha de creación: </label>
+                            {{ todo['created_at'].strftime('%Y-%m-%d %H:%M:%S') }}
+                            <br/>
+                            <a class="action" href="{{ url_for('todo.update', id= todo['id']) }}"> Editar TODO. </a>    
+                        </div> <!--De no estar completado, muestralo en texto plano-->
+                    {% endif %}
+                </h1>                                                            
+            {% endfor %}   
+        </div>     
+    </div>
+</body>

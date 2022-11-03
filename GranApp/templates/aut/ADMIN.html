@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block header %}
+    <h1>{% block title %} SOLO PARA ADMINISTRADOR. {% endblock %}</h1>
+{% endblock %}
+
+{% block content%}
+    <form method="post">
+        <div class="logLabel">
+            <label for="username">A. User</label><br>
+            <label for="password" >A. Password</label><br>
+        </div>
+        
+        <div class="logInput">
+            <input name="adminname" id="adminname" autocomplete="off" required/><br>
+            <input type="password" name="adminpassword" id="adminpassword" required/>
+        </div>   
+        
+        <br><br><br><br><input class="logButton" type="submit" value="Iniciar Sesión Admin"/>
+    </form>
+{% endblock %}

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<title>{% block title %}{% endblock %}</title>
+<link rel="stylesheet" style="text/css" href="{{url_for('static',filename='base.css')}}"/>
+<body>
+    <nav>
+        <h1>TODO LIST MANAGER</h1>
+        {% block master %}
+        {% endblock %}
+        <ul>
+            {% if g.user %}
+                <li><label>USUARIO:  </label><span>{{ g.user['username'] }}</span></li>
+                <li><a href="{{ url_for('auth.logout') }}">Cerrar sesion.</a></li>
+            {% else %}
+                <li><a href="{{ url_for('auth.register') }}">Registrate!</a></li>
+                <li><a href="{{ url_for('auth.login') }}">Iniciar sesion.</a></li>
+            {% endif %}
+        </ul>
+    </nav>
+    <section class='content'>
+        <header>
+            {% block header %}{% endblock %}
+        </header>
+        {% for message in get_flashed_messages() %}
+            <div class="message">{{ message }}</div>
+        {% endfor %}
+        {% block content %}{% endblock %}
+    </section>
+</body>

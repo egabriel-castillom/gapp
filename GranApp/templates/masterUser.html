@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<title>USUARIOS REGISTRADOS</title>
+<link rel="stylesheet" style="text/css" href="{{url_for('static',filename='base.css')}}"/>
+<body>
+    <nav>
+        <h1>TODO LIST MANAGER</h1>
+        <div>
+            <a class="action" href="{{url_for('auth.adminMenu')}}">Menu.</a>
+        </div>
+        <ul>
+            <li><a href="{{ url_for('auth.register') }}">Registrate!</a></li>
+            <li><a href="{{ url_for('auth.login') }}">Iniciar sesion.</a></li>            
+        </ul>
+    </nav>
+    <section class='updateUser'>
+        <header>
+            <h1>USUARIOS REGISTRADOS</h1>
+        </header>
+        {% for message in get_flashed_messages() %}
+            <div class="message">{{ message }}</div>
+        {% endfor %}
+        <ul>
+            {% for user in users %} <!--Muestra los todos del usuario en cuestión.-->
+                <li class="users">   
+                    <div>
+                        <h1>               
+                            <label>Usuario. </label>
+                            <s>{{ user['username'] }}</s><br/>
+                            <a class="action" href="{{url_for('todo.userUpdate', id=user['id'])}}">Editar usuario.</a>
+                        </h1>
+                    </div>
+                </li>
+            {% if not loop.last %}
+                <hr>
+            {% endif %}   
+            {% endfor %}
+        </ul>
+    </section>
+</body>

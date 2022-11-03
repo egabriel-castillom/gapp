@@ -1,0 +1,38 @@
+{% extends 'basemail.html' %}
+{% block header %}
+    <h1>
+        {% block title %}
+            Crear email.
+        {% endblock %}
+    </h1>
+{% endblock %}
+{% block action %} <a href="{{ url_for('mail.index') }}", class="button"> Volver </a> {% endblock %}
+{% block content %}
+    <form class="crear-form" method="post">
+        <div class="crear-obj">
+            <input type="text" name="adress" placeholder="A que email se envía?...." autocomplete="off" list="regUsers">
+            <datalist id="regUsers" class="regUsers">
+                {% for regUsuario in regUsuarios %}
+                    <option value="{{regUsuario['email']}}">
+                        USUARIO | ( {{regUsuario['id']}} ) - {{regUsuario['username']}}
+                    </option>
+                {% endfor %}
+            </datalist>
+        </div>
+        
+        <br>
+        <div class="crear-obj">
+            <input type="text" name="subject" placeholder="Asunto ...." autocomplete="off">
+        </div>
+        
+        <br>
+        <div class="crear-obj">
+            <textarea name="content" placeholder="Contenido..."></textarea>    
+        </div>
+        
+        <br>
+        <div class="crear-obj">
+            <button type="submit" class="sbutton">Enviar.</button>
+        </div>
+    </form>
+{% endblock %}  

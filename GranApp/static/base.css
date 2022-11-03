@@ -1,0 +1,170 @@
+html{
+    height: 100%;
+}
+body{
+    height: 100%;
+    background-image:linear-gradient(to bottom,grey,rgb(179, 17, 220)) ;
+}
+input{
+    background-color: rgba(114, 113, 113, 0.679);
+}
+
+div{
+    margin: 5px;
+}
+
+ul{
+    list-style: none;
+}
+
+.todo{
+    height: auto;
+}
+
+.todoContent {
+    height: 380px;
+    background-color:antiquewhite ;
+    width: 80%;
+    box-shadow: 1px 2px 5px;
+    border: solid 1px;
+    margin: 2%;
+    padding: 2%;
+    transition: .05s;
+    border-radius: 20px;
+}
+
+.todoContent:hover {
+    background-color:rgb(245, 245, 245) ;
+    box-shadow: 1px 2px 5px;
+    border: solid 1px;
+}
+
+.todosContent {
+    height: 150px;
+    background-color:antiquewhite ;
+    width: 90%;
+    box-shadow: 1px 2px 5px;
+    border: solid 1px;
+    margin: 2%;
+    transition: .05s;
+    border-radius: 20px;
+    overflow:auto ;
+}
+
+.content {
+    border-radius: 20px;
+    background-color:antiquewhite ;
+    width: 20%;
+    height: 20%;
+    box-shadow: 1px 2px 5px;
+    border: solid 1px;
+    margin: 2%;
+    padding: 2%;
+    transition: .05s;
+}
+
+.content:hover {
+    background-color:rgb(245, 245, 245) ;
+    box-shadow: 1px 2px 5px;
+    border: solid 1px;
+    margin: 2%;
+    padding: 2%;
+}
+
+.updateUser {
+    border-radius: 20px;
+    background-color:antiquewhite ;
+    width: 20%;
+    height: auto;
+    box-shadow: 1px 2px 5px;
+    border: solid 1px;
+    margin: 2%;
+    padding: 2%;
+    transition: .05s;
+}
+
+.updateUser:hover {
+    background-color:rgb(245, 245, 245) ;
+    box-shadow: 1px 2px 5px;
+    border: solid 1px;
+    margin: 2%;
+    padding: 2%;
+}
+
+.CD{
+    display: inline;
+    float: left;
+    width: 50%;
+    margin: 5px;
+    box-shadow: 1px 2px 5px;
+    padding: 5px;
+}
+.TD{
+    display: inline;
+    float: right;
+    width: 50%;
+    margin: 5px;
+    box-shadow: 1px 2px 5px;
+    padding: 10px;
+}
+
+h2{
+    display: inline;
+}
+
+.cd{
+    padding-left: 2%;
+}
+.td{
+    padding-left: 40%;
+}
+
+.reg{
+    display: inline;
+}
+
+.regLabel{
+    float: left;
+    width: 20%;
+    padding-left: 1%;
+    transition: 1s;
+}
+
+.regInput{
+    float: left;
+    width: 20%;
+    transition: 1s;
+}
+
+.logLabel{
+    float: left;
+    width: 30%;
+    padding-left: 1%;
+    transition: 1s;
+}
+
+.logInput{
+    float: left;
+    width: 20%;
+    transition: 1s;
+}
+
+.logButton{
+    border-radius: 20px;
+    padding: 2%;
+    margin-left: 30%;
+    transition: 1s;
+}
+
+.logButton:hover{
+    border-radius: 20px;
+    padding: 2%;
+    margin-left: 30%;
+    box-shadow: .5px .5px 1px;
+    background-color: aliceblue;
+}
+
+.upBtn {
+    margin: 10px;
+    float: left;
+}
